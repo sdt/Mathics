@@ -490,8 +490,8 @@ def escape_html(text, verbatim_mode=False, counters=None, single_line=False):
         def repl_img(match):
             src = match.group('src')
             title = match.group('title')
-            return (r'<a href="/media/doc/%(src)s.pdf">'
-                    r'<img src="/media/doc/%(src)s.png" title="%(title)s" />'
+            return (r'<a href="media/doc/%(src)s.pdf">'
+                    r'<img src="media/doc/%(src)s.png" title="%(title)s" />'
                     r'</a>') % {'src': src, 'title': title}
         text = IMG_RE.sub(repl_img, text)
 

@@ -6,7 +6,7 @@ function showSave() {
 
 function openWorksheet(name) {
 	hidePopup();
-	new Ajax.Request('/ajax/open/', {
+	new Ajax.Request('ajax/open/', {
 		method: 'post',
 		parameters: {
 			'name': name
@@ -23,7 +23,7 @@ function openWorksheet(name) {
 
 function showOpen() {
 	requireLogin("You must login to open online worksheets.", function() {
-		new Ajax.Request('/ajax/getworksheets/', {
+		new Ajax.Request('ajax/getworksheets/', {
 			method: 'get',
 			onSuccess: function(transport) {
 				var response = transport.responseText.evalJSON();
@@ -58,7 +58,7 @@ function save(overwrite) {
 		content = getContent();
 	else
 		content = $('codetext').value;
-	submitForm('saveForm', '/ajax/save/', function(response) {
+	submitForm('saveForm', 'ajax/save/', function(response) {
 		if (!checkLogin(response))
 			return;
 		cancelSave();

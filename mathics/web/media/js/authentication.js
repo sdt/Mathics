@@ -33,7 +33,7 @@ function onLogout() {
 }
 
 function login() {
-	submitForm('loginForm', '/ajax/login/', function(response) {
+	submitForm('loginForm', 'ajax/login/', function(response) {
 		var result = response.result;
 		var email = response.form.values.email;
 		if (result == 'ok') {
@@ -50,7 +50,7 @@ function login() {
 }
 
 function logout() {
-	new Ajax.Request('/ajax/logout/', {
+	new Ajax.Request('ajax/logout/', {
 		method: 'post',
 		onSuccess: onLogout
 	});
